@@ -36,7 +36,39 @@ function nextSlide() {
 }
 
 // Auto-advance slides
-setInterval(nextSlide, 5000);
+let slideInterval = setInterval(nextSlide, 8000);
+
+function pauseSlideshow() {
+    clearInterval(slideInterval);
+}
+
+function resumeSlideshow() {
+    // Prevent multiple intervals
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, 5000);
+}
+
+// Pause on visibility change
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        pauseSlideshow();
+    } else {
+        resumeSlideshow();
+    }
+});
+
+// Pause when user scrolls past hero section
+// const heroSection = document.querySelector('.hero');
+// window.addEventListener('scroll', () => {
+//     if (heroSection) {
+//         const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+//         if (window.pageYOffset > heroBottom) {
+//             pauseSlideshow();
+//         } else {
+//             resumeSlideshow();
+//         }
+//     }
+// });
 
 // Indicator click handlers
 indicators.forEach((indicator, index) => {
@@ -105,7 +137,8 @@ const serviceDetails = {
             '30 days of free support'
         ],
         timeline: '2-4 weeks',
-        price: 'Starting at $2,500'
+        priceFrom: '₦3,000,000',
+        priceTo: '₦6,000,000'
     },
     branding: {
         title: 'Brand Identity',
@@ -119,7 +152,8 @@ const serviceDetails = {
             'Brand strategy consultation'
         ],
         timeline: '1-3 weeks',
-        price: 'Starting at $3,000'
+        priceFrom: '₦3,600,000',
+        priceTo: '₦7,200,000'
     },
     social: {
         title: 'Social Media Setup',
@@ -133,7 +167,8 @@ const serviceDetails = {
             'Analytics setup and training'
         ],
         timeline: '1-2 weeks',
-        price: 'Starting at $1,500'
+        priceFrom: '₦1,800,000',
+        priceTo: '₦3,600,000'
     },
     seo: {
         title: 'SEO Optimization',
@@ -147,7 +182,8 @@ const serviceDetails = {
             '3 months of monitoring and adjustments'
         ],
         timeline: '2-4 weeks setup + ongoing',
-        price: 'Starting at $2,000'
+        priceFrom: '₦2,400,000',
+        priceTo: '₦5,400,000'
     },
     combo1: {
         title: 'Brand + Web Combo',
@@ -161,7 +197,8 @@ const serviceDetails = {
             'Priority project timeline'
         ],
         timeline: '3-5 weeks',
-        price: 'Starting at $4,800'
+        priceFrom: '₦5,760,000',
+        priceTo: '₦9,600,000'
     },
     combo2: {
         title: 'Digital Marketing Suite',
@@ -175,7 +212,8 @@ const serviceDetails = {
             '60 days of optimization support'
         ],
         timeline: '3-6 weeks',
-        price: 'Starting at $5,500'
+        priceFrom: '₦6,600,000',
+        priceTo: '₦12,000,000'
     },
     combo3: {
         title: 'Growth Accelerator',
@@ -189,7 +227,8 @@ const serviceDetails = {
             '1 month of social media management'
         ],
         timeline: '4-6 weeks',
-        price: 'Starting at $8,000'
+        priceFrom: '₦9,600,000',
+        priceTo: '₦18,000,000'
     },
     complete: {
         title: 'Complete Launch Ecosystem',
@@ -205,7 +244,8 @@ const serviceDetails = {
             'Dedicated account manager'
         ],
         timeline: '6-8 weeks',
-        price: 'Starting at $15,000'
+        priceFrom: '₦18,000,000',
+        priceTo: '₦36,000,000'
     }
 };
 
@@ -216,43 +256,43 @@ document.querySelectorAll('.view-service').forEach(button => {
 
         if (service) {
             modalContent.innerHTML = `
-                        <h2 style="font-family: 'Orbitron', monospace; color: var(--primary-color); margin-bottom: 1rem;">${service.title}</h2>
-                        <p style="color: var(--text-light); margin-bottom: 2rem; font-size: 1.1rem;">${service.description}</p>
-                        
-                        <h3 style="color: var(--neutral-white); margin-bottom: 1rem;">What's Included:</h3>
-                        <ul style="color: var(--text-light); margin-bottom: 2rem;">
-                            ${service.features.map(feature => `<li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary-color); margin-right: 0.5rem;"></i>${feature}</li>`).join('')}
-                        </ul>
-                        
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-                            <div>
-                                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Timeline</h4>
-                                <p style="color: var(--text-light);">${service.timeline}</p>
-                            </div>
-                            <div>
-                                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Investment</h4>
-                                <p style="color: var(--text-light); font-weight: 600;">${service.price}</p>
-                            </div>
-                        </div>
-                        
-                        <div style="text-align: center;">
-                            <a href="#contact" class="btn-primary" style="display: inline-block; margin-right: 1rem;">Get Started</a>
-                            <button class="btn-secondary" onclick="modal.style.display='none'">Close</button>
-                        </div>
-                    `;
-
-            modal.style.display = 'block';
+                <h3>${service.title}</h3>
+                <p>${service.description}</p>
+                
+                <h3 style="color: var(--neutral-white);">What's Included:</h3>
+                <ul style="color: var(--text-light); margin-bottom: 2rem;">
+                    ${service.features.map(feature => `<li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary-color); margin-right: 0.5rem;"></i>${feature}</li>`).join('')}
+                </ul>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                    <div>
+                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Timeline</h4>
+                        <p style="color: var(--text-light);">${service.timeline}</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Investment</h4>
+                        <p style="color: var(--text-light); font-weight: 600;">
+                            <span style="font-size: var(--font-size-sm);">Range: ${service.priceFrom} - ${service.priceTo}</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center;">
+                    <a href="#contact" class="btn-primary" style="display: inline-block; margin-right: 1rem;">Get Started</a>
+                </div>
+            `;
+            modal.classList.add('active');
         }
     });
 });
 
 closeModal.addEventListener('click', () => {
-    modal.style.display = 'none';
+    modal.classList.remove('active')
 });
 
 window.addEventListener('click', (e) => {
     if (e.target === modal) {
-        modal.style.display = 'none';
+        modal.classList.remove('active')
     }
 });
 

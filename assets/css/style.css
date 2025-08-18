@@ -9,10 +9,16 @@
     --gradient-dark: linear-gradient(135deg, #0D1A24 0%, #1E1E1E 100%);
 
     /* Fonts and Responsive Font Sizing */
-    --font-size-base: clamp(1rem, 1vw + 0.8rem, 1.2rem);
-    --font-size-lg: clamp(2rem, 4vw + 1rem, 3.5rem);
-    --font-size-md: clamp(1.2rem, 2vw + 0.8rem, 2rem);
-    --font-size-sm: clamp(0.9rem, 1vw + 0.6rem, 1.1rem);
+    --font-size-base: clamp(1rem, 1vw + 0.7rem, 1.1rem);
+    --font-size-lg: clamp(1.8rem, 3.5vw + 0.9rem, 3rem);
+    --font-size-xl: clamp(1.5rem, 3vw + 0.8rem, 2.5rem);
+    --font-size-md: clamp(1.1rem, 1.8vw + 0.7rem, 1.8rem);
+    --font-size-sm: clamp(0.85rem, 1vw + 0.5rem, 1rem);
+    --font-size-xs: clamp(0.75rem, 0.8vw + 0.4rem, 0.9rem);
+
+    --font-family: 'Space Grotesk', sans-serif;
+    --font-family-heading: 'Orbitron', monospace;
+
 }
 
 *, *::before, *::after {
@@ -26,7 +32,7 @@ html {
 }
 
 body {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: var(--font-family);
     background-color: var(--background-dark);
     color: var(--neutral-white);
     line-height: 1.6;
@@ -56,6 +62,44 @@ a {
 
 a:hover {
     color: var(--accent-violet);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: var(--font-size-xl);
+    font-weight: 900;
+}
+
+h2 {
+    font-size: var(--font-size-lg);
+    font-weight: 800;
+}
+
+h3 {
+    font-size: var(--font-size-md);
+    font-weight: 700;
+}
+
+h4 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+}
+
+h5 {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+p {
+    font-size: var(--font-size-base);
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
 }
 
 /* Promo Announcement */
@@ -126,15 +170,27 @@ a:hover {
 
 /* Navigation */
 .navbar {
-    position: fixed;
+    position: sticky;
     top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     width: 100%;
     background: var(--background-dark);
     backdrop-filter: blur(20px);
     z-index: 1000;
     padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
 }
+
+/* .navbar.scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+} */
 
 .navbar .container {
     display: flex;
@@ -202,7 +258,7 @@ a:hover {
         /* display: none; */
         transform: translateY(-200%);
         position: absolute;
-        top: 60px;
+        top: 80px;
         left: 0;
         width: 100%;
         background: var(--background-dark);
@@ -259,7 +315,8 @@ a:hover {
     display: flex;
     align-items: center;
     overflow: hidden;
-    /* background-color: red; */
+    /* background-color: green; */
+    /* padding: 4rem 0; */
 }
 
 /* .hero-container {
@@ -269,8 +326,9 @@ a:hover {
     width: 100%;
     z-index: 2;
 } */
-
+   
 .slide {
+    /* background-color: red; */
     display: none;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -284,10 +342,10 @@ a:hover {
     opacity: 1;
 }
 
-.slide-content h1 {
-    font-family: 'Orbitron', monospace;
-    font-size: var(--font-size-lg);
-    font-weight: 900;
+.slide-content h2 {
+    /* font-family: 'Orbitron', monospace;
+    font-size: var(--font-size-md);
+    font-weight: 900; */
     margin-bottom: 1.5rem;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
@@ -296,12 +354,9 @@ a:hover {
     line-height: 1.2;
 }
 
-.slide-content p {
-    font-size: var(--font-size-md);
-    color: var(--text-light);
+/* .slide-content p {
     margin-bottom: 2rem;
-    line-height: 1.8;
-}
+} */
 
 .cta-button {
     display: inline-block;
@@ -331,12 +386,12 @@ a:hover {
 .slide-image img {
     width: 100%;
     height: 400px;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.5s ease;
 }
 
 .slide-image:hover img {
-    transform: scale(1.05);
+    transform: scale(.95);
 }
 
 /* Slide Indicators */
@@ -372,7 +427,8 @@ a:hover {
     .hero {
         height: auto;
         padding: 4rem 0;
-        padding-top: 7rem; 
+        /* background-color: red; */
+        /* padding-top: 7rem;  */
         /* margin-top: 100px; */
     }
 
@@ -383,14 +439,21 @@ a:hover {
 
     .slide-image {
         order: -1;
+        height: 40vh;
     }
 
     .slide-image img {
-        height: 300px;
+        width: auto;
+        height: 100%;
+    }
+
+    .slide-indicators {
+        bottom: 0;
     }
 
     .indicator {
         width: 10%;
+        /* display: none; */
     }
 }
 
@@ -407,18 +470,14 @@ a:hover {
 }
 
 .section-header h2 {
-    font-family: 'Orbitron', monospace;
-    font-size: var(--font-size-lg);
-    font-weight: 700;
-    margin-bottom: 1rem;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-.section-header p {
-    font-size: var(--font-size-md);
+.section-header h4 {
+    font-family: var(--font-family);
     color: var(--text-light);
     max-width: 600px;
     margin: 0 auto;
@@ -434,26 +493,18 @@ a:hover {
     /* background-color: blue; */
 }
 
-.about-text h3 {
-    font-family: 'Orbitron', monospace;
-    font-size: var(--font-size-md);
+/* .about-text h3 {
     color: var(--primary-color);
     margin-bottom: 1.5rem;
 }
 
 .about-text p {
-    font-size: var(--font-size-base);
-    color: var(--text-light);
     margin-bottom: 1.5rem;
-}
+} */
 
-.about-right {
-    align-self: flex-start;
-    min-width: 300px;
-    /* background-color: red; */
-}
 
 .about-image {
+    /* min-width: 300px; */
     /* overflow: hidden; */
     width: 100%;
     position: relative;
@@ -484,7 +535,7 @@ a:hover {
 .about-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
     /* position: absolute;
     top: calc(100% + 3rem); */
     width: 100%;
@@ -500,7 +551,6 @@ a:hover {
 }
 
 .stat-number {
-    font-family: 'Orbitron', monospace;
     font-size: var(--font-size-md);
     color: var(--primary-color);
     font-weight: 700;
@@ -516,12 +566,14 @@ a:hover {
 @media (max-width: 800px) {
     .about-content {
         grid-template-columns: 1fr;
+        /* gap: 2rem; */
     }
 
     .about-image {
-        width: 90%;
+        width: 80%;
         margin: auto;
-        margin-bottom: 4rem;
+        /* margin-bottom: 4rem; */
+        order: -1;
     }
 
     .about-image::before {
@@ -555,7 +607,7 @@ a:hover {
 .service-card {
     background: var(--gradient-dark);
     border-radius: 20px;
-    padding: 2.5rem;
+    padding: 1.5rem;
     border: 1px solid rgba(0, 209, 193, 0.1);
     transition: all 0.3s ease;
     position: relative;
@@ -581,27 +633,25 @@ a:hover {
 .service-icon {
     font-size: var(--font-size-lg);
     color: var(--primary-color);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-.service-card h3 {
-    font-family: 'Orbitron', monospace;
-    font-size: var(--font-size-md);
+.service-card h4 {
     color: var(--neutral-white);
     margin-bottom: 1rem;
 }
 
 .service-card p {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-sm);
     color: var(--text-light);
     margin-bottom: 2rem;
     line-height: 1.7;
 }
 
 .service-price {
-    font-family: 'Orbitron', monospace;
+    /* font-family: 'Orbitron', monospace;
     font-size: var(--font-size-base);
-    color: var(--accent-violet);
+    color: var(--accent-violet); */
     margin-bottom: 1.5rem;
 }
 
@@ -912,15 +962,30 @@ a:hover {
     backdrop-filter: blur(10px);
 }
 
+body:has(.modal.active) {
+    overflow: hidden;
+}
+
+.modal.active {
+    display: block;
+}
+
 .modal-content {
     background: var(--gradient-dark);
-    margin: 5% auto;
+    /* background-color: red; */
+    margin: 5vh auto;
     padding: 3rem;
+    height: 90vh;
     border-radius: 20px;
     width: 90%;
     max-width: 600px;
     border: 1px solid rgba(0, 209, 193, 0.3);
     position: relative;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .close {
@@ -936,4 +1001,12 @@ a:hover {
 
 .close:hover {
     color: var(--primary-color);
+}
+
+#modalContent {
+    overflow-y: auto;
+    /* background-color: green; */
+    ul {
+        list-style: none;
+    }
 }
