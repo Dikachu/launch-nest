@@ -5,10 +5,8 @@
     <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Launch Nest - Futuristic idea-to-execution hub. We nurture raw concepts and build everything needed to launch them into the world. Premium branding, web design, and digital marketing services.">
-    <meta name="keywords"
-        content="startup launch, branding, web design, digital marketing, business development, idea execution">
+    <meta name="description" content="Launch Nest - Futuristic idea-to-execution hub. We nurture raw concepts and build everything needed to launch them into the world. Premium branding, web design, and digital marketing services.">
+    <meta name="keywords" content="startup launch, branding, web design, digital marketing, business development, idea execution">
     <meta name="author" content="Launch Nest">
 
     <!-- Title -->
@@ -20,12 +18,13 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
 
     <!-- Custom Style -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -55,6 +54,7 @@
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
                 <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -163,10 +163,10 @@
         <div class="container">
             <div class="section-header">
                 <h2>About Launch Nest</h2>
-                <h4>
+                <p>
                     Where visionary ideas meet flawless execution. We're not just another agency – we're your strategic
                     partner in building the future.
-                </h4>
+                </p>
             </div>
 
             <div class="about-content">
@@ -346,60 +346,200 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section testimonials">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section portfolio-showcase" aria-label="Project Showcase">
         <div class="container">
             <div class="section-header">
-                <h2>Success Stories</h2>
-                <p>Don't just take our word for it. Here's what our clients say about their transformation journey.</p>
+                <h2>Projects we worked on</h2>
+                <p>
+                    Explore some of the innovative projects we've developed and launched for our clients, showcasing real-world impact and exceptional results.
+                </p>
             </div>
 
-            <div class="testimonial-slider">
-                <div class="testimonial-track">
-                    <div class="testimonial-card">
-                        <div class="testimonial-avatar">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
-                                alt="Client Avatar">
+            <div class="swiper portfolioSwiper" role="region" aria-label="Project carousel">
+                <div class="swiper-wrapper">
+                    <!-- Project 1: TechCorp -->
+                    <article class="swiper-slide">
+                        <div class="project-card">
+                            <div class="company-logo" data-company="TECHCORP" aria-label="TechCorp company logo">
+                                <img src="assets/images/logo.png" alt="">
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">Enterprise AI Platform</h3>
+                                <p class="project-tagline">Revolutionizing business intelligence with next-generation machine learning solutions that increased efficiency by 300%</p>
+                            </div>
+                            <a href="#" class="cta-button" aria-label="View TechCorp project details">
+                                <span>View Project</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
                         </div>
-                        <div class="testimonial-text">
-                            "Launch Nest didn't just build us a website – they built us a digital empire. Our revenue
-                            increased 300% in the first six months. Their strategic approach is unmatched."
-                        </div>
-                        <div class="testimonial-author">Marcus Chen</div>
-                        <div class="testimonial-role">CEO, TechFlow Solutions</div>
-                    </div>
+                    </article>
 
-                    <div class="testimonial-card">
-                        <div class="testimonial-avatar">
-                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b1a1?w=100&h=100&fit=crop&crop=face"
-                                alt="Client Avatar">
+                    <!-- Project 2: FinanceFlow -->
+                    <article class="swiper-slide">
+                        <div class="project-card">
+                            <div class="company-logo" data-company="FINFLOW" aria-label="FinanceFlow company logo">
+                                <img src="assets/images/logo.png" alt="">
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">Digital Banking Suite</h3>
+                                <p class="project-tagline">Award-winning fintech platform serving 2M+ users with seamless mobile-first banking experience</p>
+                            </div>
+                            <a href="#" class="cta-button" aria-label="View FinanceFlow project details">
+                                <span>View Project</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
                         </div>
-                        <div class="testimonial-text">
-                            "From a simple idea to a fully launched brand in 8 weeks. The team at Launch Nest made the
-                            impossible feel effortless. Our brand now commands premium pricing."
-                        </div>
-                        <div class="testimonial-author">Sarah Williams</div>
-                        <div class="testimonial-role">Founder, Luxe Wellness Co.</div>
-                    </div>
+                    </article>
 
-                    <div class="testimonial-card">
-                        <div class="testimonial-avatar">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
-                                alt="Client Avatar">
+                    <!-- Project 3: HealthTech -->
+                    <article class="swiper-slide">
+                        <div class="project-card">
+                            <div class="company-logo" data-company="MEDTECH" aria-label="HealthTech company logo">
+                                <img src="assets/images/logo.png" alt="">
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">Telemedicine Platform</h3>
+                                <p class="project-tagline">HIPAA-compliant healthcare solution connecting 50K+ patients with certified medical professionals globally</p>
+                            </div>
+                            <a href="#" class="cta-button" aria-label="View HealthTech project details">
+                                <span>View Project</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
                         </div>
-                        <div class="testimonial-text">
-                            "The complete launch package was worth every penny. Professional branding, stunning website,
-                            and a social media presence that actually converts. ROI was immediate."
+                    </article>
+
+                    <!-- Project 4: EcoSmart -->
+                    <article class="swiper-slide">
+                        <div class="project-card">
+                            <div class="company-logo" data-company="ECOSMART" aria-label="EcoSmart company logo">
+                                <img src="assets/images/logo.png" alt="">
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">Smart City IoT Network</h3>
+                                <p class="project-tagline">Sustainable urban infrastructure monitoring system reducing energy consumption by 40% across major cities</p>
+                            </div>
+                            <a href="#" class="cta-button" aria-label="View EcoSmart project details">
+                                <span>View Project</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
                         </div>
-                        <div class="testimonial-author">David Rodriguez</div>
-                        <div class="testimonial-role">Co-founder, Urban Eats</div>
+                    </article>
+
+                    <!-- Project 5: RetailMax -->
+                    <article class="swiper-slide">
+                        <div class="project-card">
+                            <div class="company-logo" data-company="RETAIL+" aria-label="RetailMax company logo">
+                                <img src="assets/images/logo.png" alt="">
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">E-commerce Transformation</h3>
+                                <p class="project-tagline">Omnichannel retail platform driving $100M+ in online sales with AI-powered personalization engine</p>
+                            </div>
+                            <a href="#" class="cta-button" aria-label="View RetailMax project details">
+                                <span>View Project</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Navigation -->
+                <div class="swiper-button-next" aria-label="Next project"></div>
+                <div class="swiper-button-prev" aria-label="Previous project"></div>
+
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container testimonials-container">
+            <!-- <h2 class="section-title">What Our Clients Say</h2> -->
+            <div class="section-header">
+                <h2>What Our Clients Say</h2>
+                <p>
+                    Discover the impact of our work through the words of our clients. Their success stories are a testament to our commitment to excellence.
+                </p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Launch Nest transformed our startup from a simple idea into a market-ready brand. Their attention to detail and strategic approach exceeded all our expectations.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <h4>Michael Rodriguez</h4>
+                            <p>CEO, TechFlow Solutions</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="testimonial-nav">
-                <button onclick="changeTestimonial(-1)"><i class="fas fa-chevron-left"></i></button>
-                <button onclick="changeTestimonial(1)"><i class="fas fa-chevron-right"></i></button>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The complete rebrand and website redesign boosted our online presence dramatically. Our leads increased by 300% within the first quarter.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SC</div>
+                        <div class="author-info">
+                            <h4>Sarah Chen</h4>
+                            <p>Founder, EcoVibe</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Professional, creative, and results-driven. Launch Nest didn't just design our brand - they crafted our entire digital identity with precision.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DJ</div>
+                        <div class="author-info">
+                            <h4>David Johnson</h4>
+                            <p>Director, Urban Spaces</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">From zero to hero in 6 weeks. Their social media strategy and website development gave us the foundation we needed to scale rapidly.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AK</div>
+                        <div class="author-info">
+                            <h4>Aisha Kumar</h4>
+                            <p>Co-founder, FitLife</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The full launch package was worth every penny. Professional execution, ongoing support, and measurable results. Highly recommended!</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">TB</div>
+                        <div class="author-info">
+                            <h4>Thomas Brown</h4>
+                            <p>Owner, Craft Coffee Co.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Launch Nest understood our vision perfectly. They delivered a cohesive brand experience that resonates with our target audience beautifully.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">EM</div>
+                        <div class="author-info">
+                            <h4>Emma Mitchell</h4>
+                            <p>Creative Director, Studio Nine</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -421,7 +561,7 @@
                         <i class="fas fa-envelope"></i>
                         <div>
                             <strong>Email Us</strong><br>
-                            hello@launchnest.com
+                            launchnest97@gmail.com
                         </div>
                     </div>
 
@@ -429,25 +569,24 @@
                         <i class="fas fa-phone"></i>
                         <div>
                             <strong>Call Us</strong><br>
-                            +1 (555) 123-NEST
+                            +2349077902860
                         </div>
                     </div>
 
                     <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <i class="fas fa-globe"></i>
                         <div>
-                            <strong>Visit Us</strong><br>
-                            123 Innovation Drive<br>
-                            Tech City, TC 12345
+                            <strong>Location</strong><br>
+                            Online<br>
+                            Available Worldwide
                         </div>
                     </div>
 
                     <div class="contact-item">
                         <i class="fas fa-clock"></i>
                         <div>
-                            <strong>Business Hours</strong><br>
-                            Mon-Fri: 9AM-6PM<br>
-                            Sat: 10AM-4PM
+                            <strong>Availability</strong><br>
+                            24/7 Available
                         </div>
                     </div>
                 </div>
@@ -473,12 +612,14 @@
                                 <option value="branding">Brand Identity</option>
                                 <option value="social">Social Media Setup</option>
                                 <option value="seo">SEO Optimization</option>
-                                <option value="combo">Combination Package</option>
+                                <option value="brand-web-combo">Brand + Web Combo</option>
+                                <option value="digital-marketing-suite">Digital Marketing Suite</option>
+                                <option value="growth-accelerator">Growth Accelerator</option>
                                 <option value="complete">Complete Launch</option>
                             </select>
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="budget">Project Budget</label>
                             <select id="budget" name="budget"
                                 style="width: 100%; padding: 1rem; border: 2px solid rgba(0, 209, 193, 0.2); border-radius: 10px; background: transparent; color: var(--neutral-white); font-family: inherit;">
@@ -488,7 +629,7 @@
                                 <option value="10k-20k">$10,000 - $20,000</option>
                                 <option value="20k+">$20,000+</option>
                             </select>
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <label for="message">Project Details</label>
@@ -513,10 +654,10 @@
                     <p>Your futuristic idea-to-execution hub. We nurture raw concepts and build everything needed to
                         launch them into the world.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="https://x.com/Launch_Nest1" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/launch-nest" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/launch_nest_" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.link/w49f19" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
 
@@ -525,6 +666,7 @@
                     <a href="#home">Home</a>
                     <a href="#about">About</a>
                     <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
                     <a href="#testimonials">Testimonials</a>
                     <a href="#contact">Contact</a>
                 </div>
@@ -538,16 +680,28 @@
                     <a href="#">Complete Launch</a>
                 </div>
 
-                <div class="footer-section">
+                <!-- <div class="footer-section">
                     <h3>Contact Info</h3>
-                    <p><i class="fas fa-envelope"></i> hello@launchnest.com</p>
-                    <p><i class="fas fa-phone"></i> +1 (555) 123-NEST</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Innovation Drive<br>Tech City, TC 12345</p>
-                </div>
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:launchnest97@gmail.com">launchnest97@gmail.com</a>
+                    </p>
+                    <p>
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+2349077902860">+2349077902860</a>
+                    </p>
+                    <p>
+                        <i class="fas fa-globe"></i> Online<br>Available Worldwide
+                    </p>
+                </div> -->
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2025 Launch Nest. All rights reserved. | Privacy Policy | Terms of Service</p>
+                <p>
+                    &copy; 2025 Launch Nest. All rights reserved. |
+                    <a href="privacy-terms.html#privacy-policy">Privacy Policy</a> |
+                    <a href="privacy-terms.html#terms-of-service">Terms of Service</a>
+                </p>
             </div>
         </div>
     </footer>
@@ -561,6 +715,16 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Direct Chat Support -->
+    <a id="chatButton" href="https://wa.link/w49f19" target="_blank" class="chat-button">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+
+    <!-- Swiper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
 
     <!-- Custom Scripts -->
     <script src="assets/js/script.js"></script>

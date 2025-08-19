@@ -1,5 +1,5 @@
 // Promo Banner Functionality
-const promoBanner = document.querySelector('.promo-banner');    
+const promoBanner = document.querySelector('.promo-banner');
 const promoClose = document.querySelector('.promo-close');
 // const promoDismissed = localStorage.getItem('promoDismissed');
 
@@ -14,6 +14,12 @@ promoClose.addEventListener('click', () => {
     promoBanner.style.display = 'none';
     // localStorage.setItem('promoDismissed', 'true');
 });
+
+// Promo Dismissal after 5 seconds
+setTimeout(() => {
+    promoBanner.style.display = 'none';
+    // localStorage.setItem('promoDismissed', 'true');
+}, 5000);
 
 // Hero Slideshow
 let currentSlide = 0;
@@ -100,24 +106,24 @@ function updateActiveNav() {
 window.addEventListener('scroll', updateActiveNav);
 
 // Testimonial Slider
-let currentTestimonial = 0;
-const testimonialTrack = document.querySelector('.testimonial-track');
-const totalTestimonials = document.querySelectorAll('.testimonial-card').length;
+// let currentTestimonial = 0;
+// const testimonialTrack = document.querySelector('.testimonial-track');
+// const totalTestimonials = document.querySelectorAll('.testimonial-card').length;
 
-function changeTestimonial(direction) {
-    currentTestimonial += direction;
+// function changeTestimonial(direction) {
+//     currentTestimonial += direction;
 
-    if (currentTestimonial >= totalTestimonials) {
-        currentTestimonial = 0;
-    } else if (currentTestimonial < 0) {
-        currentTestimonial = totalTestimonials - 1;
-    }
+//     if (currentTestimonial >= totalTestimonials) {
+//         currentTestimonial = 0;
+//     } else if (currentTestimonial < 0) {
+//         currentTestimonial = totalTestimonials - 1;
+//     }
 
-    testimonialTrack.style.transform = `translateX(-${currentTestimonial * 100}%)`;
-}
+//     testimonialTrack.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+// }
 
 // Auto-advance testimonials
-setInterval(() => changeTestimonial(1), 6000);
+// setInterval(() => changeTestimonial(1), 6000);
 
 // Service Details Modal
 const modal = document.getElementById('serviceModal');
@@ -338,7 +344,7 @@ const observerOptions = {
 const observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
+            entry.target.classList.add('fade-in', 'animate-in');
         }
     });
 }, observerOptions);
@@ -362,5 +368,195 @@ navLinks.forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
         mobileMenu.classList.remove('active');
+    });
+});
+
+// Initialize Swiper with advanced configuration
+const swiper = new Swiper('.portfolioSwiper', {
+    // Basic settings
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    centeredSlides: true,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+    },
+
+    // Effects
+    effect: 'coverflow',
+    coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 100,
+        modifier: 2,
+        slideShadows: false,
+    },
+
+    // Navigation
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+
+    // Pagination
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        dynamicBullets: true,
+    },
+
+    // Responsive breakpoints
+    breakpoints: {
+        640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+            effect: 'slide',
+            centeredSlides: false,
+        },
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+            effect: 'slide',
+            centeredSlides: false,
+        },
+    },
+
+    // Accessibility
+    a11y: {
+        prevSlideMessage: 'Previous project',
+        nextSlideMessage: 'Next project',
+        firstSlideMessage: 'This is the first project',
+        lastSlideMessage: 'This is the last project',
+    },
+
+    // Keyboard control
+    keyboard: {
+        enabled: true,
+        onlyInViewport: true,
+    },
+
+    // Mouse wheel control
+    mousewheel: {
+        enabled: false,
+    },
+
+    // Touch gestures
+    touchRatio: 1,
+    touchAngle: 45,
+    grabCursor: true,
+
+    // Performance
+    watchSlidesProgress: true,
+    lazy: {
+        loadPrevNext: true,
+    },
+
+    // Speed and transitions
+    speed: 800,
+    longSwipes: true,
+    longSwipesRatio: 0.5,
+    longSwipesMs: 300,
+
+    // Events
+    on: {
+        init: function () {
+            console.log('Portfolio showcase initialized');
+            // Add loaded class for animations
+            document.querySelector('.portfolio-showcase').classList.add('loaded');
+        },
+        slideChangeTransitionStart: function () {
+            // Add smooth transition effects
+            const slides = this.slides;
+            slides.forEach((slide, index) => {
+                if (index === this.activeIndex) {
+                    slide.style.transform = 'scale(1)';
+                    slide.style.opacity = '1';
+                } else {
+                    slide.style.transform = 'scale(0.95)';
+                    slide.style.opacity = '0.7';
+                }
+            });
+        },
+        transitionEnd: function () {
+            // Reset transforms after transition
+            const slides = this.slides;
+            slides.forEach(slide => {
+                slide.style.transform = '';
+                slide.style.opacity = '';
+            });
+        },
+    }
+});
+
+// Enhanced hover effects for project cards
+const projectCards = document.querySelectorAll('.project-card');
+projectCards.forEach(card => {
+    card.addEventListener('mouseenter', function () {
+        // Pause autoplay on hover
+        swiper.autoplay.stop();
+
+        // Add enhanced hover state
+        this.style.transform = 'translateY(-15px) scale(1.02)';
+    });
+
+    card.addEventListener('mouseleave', function () {
+        // Resume autoplay
+        swiper.autoplay.start();
+
+        // Reset hover state
+        this.style.transform = '';
+    });
+});
+
+// Intersection Observer for scroll animations
+// const observerOptions = {
+//     threshold: 0.1,
+//     rootMargin: '0px 0px -50px 0px'
+// };
+
+// const observer = new IntersectionObserver((entries) => {
+//     entries.forEach(entry => {
+//         if (entry.isIntersecting) {
+//             entry.target.classList.add('animate-in');
+//         }
+//     });
+// }, observerOptions);
+
+// Observe section elements
+const elementsToObserve = document.querySelectorAll('.section-header, .swiper-slide');
+elementsToObserve.forEach(el => observer.observe(el));
+
+// Performance optimization: Lazy load background images
+const lazyBackgrounds = document.querySelectorAll('[data-bg]');
+const bgObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const bg = entry.target.getAttribute('data-bg');
+            entry.target.style.backgroundImage = `url(${bg})`;
+            entry.target.removeAttribute('data-bg');
+            bgObserver.unobserve(entry.target);
+        }
+    });
+});
+
+lazyBackgrounds.forEach(bg => bgObserver.observe(bg));
+
+// Add smooth scroll behavior for CTA buttons
+document.querySelectorAll('.cta-button').forEach(button => {
+    button.addEventListener('click', function (e) {
+        e.preventDefault();
+        // Add click animation
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            this.style.transform = '';
+            // Here you would typically navigate to the project page
+            console.log('Navigating to project:', this.closest('.project-card').querySelector('.project-title').textContent);
+        }, 150);
     });
 });
