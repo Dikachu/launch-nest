@@ -692,6 +692,10 @@ p {
     cursor: pointer;
     font-family: inherit;
     font-size: var(--font-size-base);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
 }
 
 .btn-primary {
@@ -1413,7 +1417,7 @@ body:has(.modal.active) {
     }
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     #chatButton {
         bottom: 20px;
         right: 20px;
@@ -1424,4 +1428,4 @@ body:has(.modal.active) {
             font-size: 1.5rem;
         }
     }
-}
+} */
