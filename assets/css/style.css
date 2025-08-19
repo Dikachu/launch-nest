@@ -1298,6 +1298,10 @@ p {
         grid-template-columns: 1fr;
     }
 
+    .contact-form {
+        padding: 2rem;
+    }
+
     .service-buttons {
         flex-direction: column;
     }
@@ -1305,6 +1309,12 @@ p {
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .contact-form {
+        padding: 1rem;
     }
 }
 
