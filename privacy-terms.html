@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags -->
     <meta charset="UTF-8">
     <title>Privacy Policy & Terms of Service | Launch Nest</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="description" content="Read Launch Nest's Privacy Policy and Terms of Service. Learn how we protect your data and the terms for using our services.">
+    <meta name="keywords" content="Launch Nest, Privacy Policy, Terms of Service, Data Protection, Web Services">
+    <meta name="author" content="Launch Nest">
+    <meta property="og:title" content="Privacy Policy & Terms of Service | Launch Nest">
+    <meta property="og:description" content="Learn about Launch Nest's privacy practices and terms for using our services.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://launchnest.com/privacy-terms.html">
+    <meta property="og:image" content="https://launchnest.com/assets/img/og-image.png">
+    <meta name="robots" content="index, follow"> -->
+
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Main Styles -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/main.css">
     <style>
         body {
-            background: var(--background-dark);
-            color: var(--neutral-white);
+            /* background: var(--background-dark-color); */
+            color: var(--neutral-color);
             font-family: 'Space Grotesk', sans-serif;
             min-height: 100vh;
         }
         .policy-container {
             max-width: 700px;
             margin: 4rem auto;
-            background: var(--gradient-dark);
+            background: var(--background-dark-color);
             border-radius: 20px;
             padding: 3rem 2rem;
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
@@ -29,21 +41,22 @@
             margin-bottom: 2.5rem;
         }
         .policy-header h1 {
-            font-family: 'Orbitron', monospace;
+            /* font-family: 'Orbitron', monospace;
             font-size: var(--font-size-lg);
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            background-clip: text; */
+            color: var(--primary-dark-color);
         }
         .policy-nav {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
         }
         .policy-nav a {
-            color: var(--primary-color);
+            color: var(--text-muted-color);
             font-weight: 600;
             text-decoration: none;
             font-size: var(--font-size-base);
@@ -53,8 +66,8 @@
             color: var(--accent-violet);
         }
         .go-back {
-            display: inline-block;
-            margin: 2rem 0 0 0;
+            margin: var(--spacing-xl) 0 0 0;
+            /* display: inline-block;
             background: var(--gradient-primary);
             color: #fff;
             padding: 0.7rem 2rem;
@@ -62,17 +75,17 @@
             text-decoration: none;
             font-weight: 600;
             font-size: var(--font-size-base);
-            transition: box-shadow 0.2s;
+            transition: box-shadow 0.2s; */
         }
-        .go-back:hover {
+        /* .go-back:hover {
             box-shadow: 0 5px 20px rgba(0,209,193,0.2);
-        }
-        h2 {
+        } */
+        /* h2 {
             font-family: 'Orbitron', monospace;
             font-size: var(--font-size-md);
             color: var(--primary-color);
             margin-top: 2.5rem;
-        }
+        } */
         p, li {
             font-size: var(--font-size-base);
             color: var(--text-light);
@@ -82,8 +95,10 @@
             margin-left: 1.5rem;
         }
         @media (max-width: 600px) {
-            .policy-container { padding: 1.5rem 0.5rem; }
-            .policy-header h1 { font-size: 2rem; }
+            .policy-container { 
+                margin: 0;
+                padding: 1.5rem 0.5rem; 
+            }
         }
     </style>
 </head>
@@ -98,7 +113,7 @@
         </div>
 
         <section id="privacy-policy">
-            <h2>Privacy Policy</h2>
+            <h3>Privacy Policy</h3>
             <p>
                 At Launch Nest, your privacy is important to us. We are committed to safeguarding your personal information and ensuring transparency about how we collect, use, and protect your data.
             </p>
@@ -115,7 +130,7 @@
         </section>
 
         <section id="terms-of-service">
-            <h2>Terms of Service</h2>
+            <h3>Terms of Service</h3>
             <p>
                 By using Launch Nest’s website and services, you agree to the following terms:
             </p>
@@ -131,7 +146,7 @@
             </p>
         </section>
 
-        <a href="index.html" class="go-back"><i class="fas fa-arrow-left"></i> Go Back</a>
+        <a href="index.html" class="go-back btn btn-secondary"><i class="fas fa-arrow-left"></i> Go Back</a>
     </div>
 </body>
 </html>
