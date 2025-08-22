@@ -501,6 +501,7 @@ p {
     width: 100%;
     position: relative;
     margin-bottom: 4rem;
+    /* background-color: red; */
 }
 
 .about-image::before {
@@ -530,7 +531,7 @@ p {
     }
 
     .about-image {
-        width: 80%;
+        /* width: 0%; */
         margin: auto;
         order: -1;
     }
@@ -1097,23 +1098,27 @@ p {
     z-index: 1;
 }
 
-.testimonials-grid {
+/* .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
-}
+} */
 
 .testimonial-card {
     background: rgba(30, 30, 30, 0.8);
-    padding: 2rem;
-    border-radius: 20px;
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
     border: 1px solid rgba(145, 94, 255, 0.3);
     backdrop-filter: blur(20px);
     transition: all 0.3s ease;
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    max-width: 60ch;
+    width: 100%;
+    margin: auto;
 }
 
 .testimonial-card::before {
@@ -1121,9 +1126,9 @@ p {
     position: absolute;
     top: -10px;
     left: 20px;
-    font-size: 4rem;
+    font-size: 6rem;
     color: var(--accent-color);
-    font-family: 'Orbitron', sans-serif;
+    font-family: var(--font-family-heading);
     opacity: 0.3;
 }
 
@@ -1143,14 +1148,15 @@ p {
 .testimonial-author {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: var(--spacing-lg);
+    /* background-color: red; */
 }
 
 .author-avatar {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-2-color));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1165,7 +1171,8 @@ p {
 
 .author-info p {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: var(--font-size-xs);
+    margin-bottom: 0;
 }
 
 /* Contact Section */
@@ -1423,7 +1430,7 @@ body:has(.modal.active) {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background: var(--gradient-primary);
+    background: var(--background-dark-color);
     color: white;
     height: 60px;
     width: 60px;

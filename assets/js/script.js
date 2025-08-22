@@ -246,181 +246,121 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Service Details Modal
-// const modal = document.getElementById('serviceModal');
-// const modalContent = document.getElementById('modalContent');
-// const closeModal = document.querySelector('.close');
+const modal = document.getElementById('serviceModal');
+const modalContent = document.getElementById('modalContent');
+const closeModal = document.querySelector('.close');
 
-// const serviceDetails = {
-//     website: {
-//         title: 'Website Design',
-//         description: 'Custom, responsive websites that convert visitors into customers.',
-//         features: [
-//             'Mobile-first responsive design',
-//             'Lightning-fast loading speeds',
-//             'SEO-optimized structure',
-//             'Content Management System',
-//             'Contact forms and integrations',
-//             '30 days of free support'
-//         ],
-//         timeline: '2-4 weeks',
-//         priceFrom: '₦3,000,000',
-//         priceTo: '₦6,000,000'
-//     },
-//     branding: {
-//         title: 'Brand Identity',
-//         description: 'Complete brand identity packages that make you unforgettable.',
-//         features: [
-//             'Logo design and variations',
-//             'Color palette and typography',
-//             'Brand guidelines document',
-//             'Business card design',
-//             'Social media templates',
-//             'Brand strategy consultation'
-//         ],
-//         timeline: '1-3 weeks',
-//         priceFrom: '₦3,600,000',
-//         priceTo: '₦7,200,000'
-//     },
-//     social: {
-//         title: 'Social Media Setup',
-//         description: 'Professional social media presence across all platforms.',
-//         features: [
-//             'Profile optimization on 5+ platforms',
-//             'Custom branded graphics',
-//             'Content strategy development',
-//             '30 pieces of initial content',
-//             'Hashtag research and strategy',
-//             'Analytics setup and training'
-//         ],
-//         timeline: '1-2 weeks',
-//         priceFrom: '₦1,800,000',
-//         priceTo: '₦3,600,000'
-//     },
-//     seo: {
-//         title: 'SEO Optimization',
-//         description: 'Comprehensive SEO strategy to dominate search rankings.',
-//         features: [
-//             'Keyword research and analysis',
-//             'On-page optimization',
-//             'Technical SEO audit',
-//             'Local SEO setup',
-//             'Content optimization',
-//             '3 months of monitoring and adjustments'
-//         ],
-//         timeline: '2-4 weeks setup + ongoing',
-//         priceFrom: '₦2,400,000',
-//         priceTo: '₦5,400,000'
-//     },
-//     combo1: {
-//         title: 'Brand + Web Combo',
-//         description: 'Perfect synergy between visual identity and digital presence.',
-//         features: [
-//             'Complete brand identity package',
-//             'Custom responsive website',
-//             'Brand-website integration',
-//             'SEO-ready structure',
-//             '45 days of support',
-//             'Priority project timeline'
-//         ],
-//         timeline: '3-5 weeks',
-//         priceFrom: '₦5,760,000',
-//         priceTo: '₦9,600,000'
-//     },
-//     combo2: {
-//         title: 'Digital Marketing Suite',
-//         description: 'Perfect foundation for online visibility and customer acquisition.',
-//         features: [
-//             'Custom responsive website',
-//             'Complete SEO optimization',
-//             'Social media setup and strategy',
-//             'Google Business Profile setup',
-//             'Analytics and tracking setup',
-//             '60 days of optimization support'
-//         ],
-//         timeline: '3-6 weeks',
-//         priceFrom: '₦6,600,000',
-//         priceTo: '₦12,000,000'
-//     },
-//     combo3: {
-//         title: 'Growth Accelerator',
-//         description: 'Everything you need to accelerate your market entry.',
-//         features: [
-//             'Complete brand identity',
-//             'Custom responsive website',
-//             'SEO optimization',
-//             'Social media setup',
-//             '1 month of content creation',
-//             '1 month of social media management'
-//         ],
-//         timeline: '4-6 weeks',
-//         priceFrom: '₦9,600,000',
-//         priceTo: '₦18,000,000'
-//     },
-//     complete: {
-//         title: 'Complete Launch Ecosystem',
-//         description: 'Everything you need to dominate your market from day one.',
-//         features: [
-//             'Complete brand identity package',
-//             'Premium responsive website',
-//             'Full SEO optimization',
-//             'Social media setup and strategy',
-//             'Paid advertising campaigns setup',
-//             '3 months of full digital management',
-//             'Performance analytics and reporting',
-//             'Dedicated account manager'
-//         ],
-//         timeline: '6-8 weeks',
-//         priceFrom: '₦18,000,000',
-//         priceTo: '₦36,000,000'
-//     }
-// };
+const serviceDetails = {
+    "brand-refresh": {
+        title: 'Brand Refresh',
+        description: 'Modernize your existing brand identity with updated logo design, color palette adjustments, and refreshed brand guidelines while keeping your brand essence intact.',
+        features: [
+            'Updated logo design',
+            'Color palette adjustments',
+            'Refreshed brand guidelines',
+            'Business card redesign',
+            'Social media asset refresh',
+            'Brand essence preservation'
+        ],
+        timeline: '1-2 weeks',
+        priceFrom: '₦2,400,000',
+        priceTo: '₦4,800,000'
+    },
+    "website-revamp": {
+        title: 'Website Revamp',
+        description: 'A full redesign of your current website with improved UI/UX, mobile optimization, speed enhancements, and SEO upgrades for modern performance and aesthetics.',
+        features: [
+            'Complete UI/UX redesign',
+            'Mobile optimization',
+            'Speed enhancements',
+            'SEO upgrades',
+            'Content restructuring',
+            '30 days of post-launch support'
+        ],
+        timeline: '2-4 weeks',
+        priceFrom: '₦3,600,000',
+        priceTo: '₦7,200,000'
+    },
+    "social-revamp": {
+        title: 'Social Media Redesign',
+        description: 'Revamp your social media profiles with new banners, refreshed content templates, and updated highlight covers for a consistent and attractive digital presence.',
+        features: [
+            'New profile banners',
+            'Refreshed content templates',
+            'Updated highlight covers',
+            'Profile optimization',
+            'Brand consistency across platforms',
+            'Content strategy update'
+        ],
+        timeline: '1 week',
+        priceFrom: '₦1,200,000',
+        priceTo: '₦2,400,000'
+    },
+    "complete-revamp": {
+        title: 'Complete Brand + Web Revamp',
+        description: 'Total redesign of your brand identity and website for a fresh, modern look that aligns with your evolving vision—perfect for rebranding or relaunching your business.',
+        features: [
+            'Full brand identity redesign',
+            'Complete website overhaul',
+            'Integrated brand-website experience',
+            'SEO and performance upgrades',
+            'Social media asset refresh',
+            '45 days of support'
+        ],
+        timeline: '3-5 weeks',
+        priceFrom: '₦6,000,000',
+        priceTo: '₦12,000,000'
+    }
+};
 
-// document.querySelectorAll('.view-service').forEach(button => {
-//     button.addEventListener('click', function () {
-//         const serviceKey = this.getAttribute('data-service');
-//         const service = serviceDetails[serviceKey];
+document.querySelectorAll('.view-service').forEach(button => {
+    button.addEventListener('click', function () {
+        console.log('Button clicked:', this);
+        
+        const serviceKey = this.getAttribute('data-service');
+        const service = serviceDetails[serviceKey];
 
-//         if (service) {
-//             modalContent.innerHTML = `
-//                 <h3>${service.title}</h3>
-//                 <p>${service.description}</p>
+        if (service) {
+            modalContent.innerHTML = `
+                <h3>${service.title}</h3>
+                <p>${service.description}</p>
 
-//                 <h3 style="color: var(--neutral-white);">What's Included:</h3>
-//                 <ul style="color: var(--text-light); margin-bottom: 2rem;">
-//                     ${service.features.map(feature => `<li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary-color); margin-right: 0.5rem;"></i>${feature}</li>`).join('')}
-//                 </ul>
+                <h3 style="color: var(--neutral-white);">What's Included:</h3>
+                <ul style="color: var(--text-light); margin-bottom: 2rem;">
+                    ${service.features.map(feature => `<li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary-color); margin-right: 0.5rem;"></i>${feature}</li>`).join('')}
+                </ul>
 
-//                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-//                     <div>
-//                         <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Timeline</h4>
-//                         <p style="color: var(--text-light);">${service.timeline}</p>
-//                     </div>
-//                     <div>
-//                         <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Investment</h4>
-//                         <p style="color: var(--text-light); font-weight: 600;">
-//                             <span style="font-size: var(--font-size-sm);">Range: ${service.priceFrom} - ${service.priceTo}</span>
-//                         </p>
-//                     </div>
-//                 </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                    <div>
+                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Timeline</h4>
+                        <p style="color: var(--text-light);">${service.timeline}</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Investment</h4>
+                        <p style="color: var(--text-light); font-weight: 600;">
+                            <span style="font-size: var(--font-size-sm);">Range: ${service.priceFrom} - ${service.priceTo}</span>
+                        </p>
+                    </div>
+                </div>
 
-//                 <div style="text-align: center;">
-//                     <a href="#contact" class="btn-primary" style="display: inline-block; margin-right: 1rem;">Get Started</a>
-//                 </div>
-//             `;
-//             modal.classList.add('active');
-//         }
-//     });
-// });
+                <div style="text-align: center;">
+                    <a href="#contact" class="btn-primary btn btn-lg" style="width: 100%;">Book Package</a>
+                </div>
+            `;
+            modal.classList.add('active');
+        }
+    });
+});
 
-// closeModal.addEventListener('click', () => {
-//     modal.classList.remove('active')
-// });
+closeModal.addEventListener('click', () => {
+    modal.classList.remove('active')
+});
 
-// window.addEventListener('click', (e) => {
-//     if (e.target === modal) {
-//         modal.classList.remove('active')
-//     }
-// });
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.classList.remove('active')
+    }
+});
 
 // // Contact Form
 // document.getElementById('contactForm').addEventListener('submit', function (e) {
