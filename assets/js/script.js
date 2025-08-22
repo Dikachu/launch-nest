@@ -37,11 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll(".list-header").forEach(header => {
         header.addEventListener("click", function () {
             const list = this.nextElementSibling;
-            const parentList = this.parentElement.parentElement;            
+            const parentList = this.parentElement.parentElement;
 
             // Close other lists when one is opened (optional)
             const allSubLists = parentList.classList.contains('list') ? parentList.querySelectorAll(".sub-list") : null;
-            
+
             if (allSubLists) {
                 allSubLists.forEach(list => {
                     list.classList.remove("active");
@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 list.classList.toggle("active");
                 this.classList.toggle("active");
-            }else {
-                if (window.innerWidth <= 768) { 
+            } else {
+                if (window.innerWidth <= 500) {
                     // Remove active from all other lists
                     document.querySelectorAll('.service-list > .list').forEach(otherList => {
                         if (otherList !== list) {
@@ -240,127 +240,174 @@ document.addEventListener('DOMContentLoaded', () => {
     const elementsToObserve = document.querySelectorAll('.section-header, .swiper-slide');
     elementsToObserve.forEach(el => observer.observe(el));
 
-});
+    // Service Details Modal
+    const modal = document.getElementById('serviceModal');
+    const modalContent = document.getElementById('modalContent');
+    const closeModal = document.querySelector('.close');
 
+    const serviceDetails = {
+        "brand-refresh": {
+            title: 'Brand Refresh',
+            description: 'Modernize your existing brand identity with updated logo design, color palette adjustments, and refreshed brand guidelines while keeping your brand essence intact.',
+            features: [
+                'Updated logo design',
+                'Color palette adjustments',
+                'Refreshed brand guidelines',
+                'Business card redesign',
+                'Social media asset refresh',
+                'Brand essence preservation'
+            ],
+            timeline: '1-2 weeks',
+            priceFrom: '₦2,400,000',
+            priceTo: '₦4,800,000'
+        },
+        "website-revamp": {
+            title: 'Website Revamp',
+            description: 'A full redesign of your current website with improved UI/UX, mobile optimization, speed enhancements, and SEO upgrades for modern performance and aesthetics.',
+            features: [
+                'Complete UI/UX redesign',
+                'Mobile optimization',
+                'Speed enhancements',
+                'SEO upgrades',
+                'Content restructuring',
+                '30 days of post-launch support'
+            ],
+            timeline: '2-4 weeks',
+            priceFrom: '₦3,600,000',
+            priceTo: '₦7,200,000'
+        },
+        "social-revamp": {
+            title: 'Social Media Redesign',
+            description: 'Revamp your social media profiles with new banners, refreshed content templates, and updated highlight covers for a consistent and attractive digital presence.',
+            features: [
+                'New profile banners',
+                'Refreshed content templates',
+                'Updated highlight covers',
+                'Profile optimization',
+                'Brand consistency across platforms',
+                'Content strategy update'
+            ],
+            timeline: '1 week',
+            priceFrom: '₦1,200,000',
+            priceTo: '₦2,400,000'
+        },
+        "complete-revamp": {
+            title: 'Complete Brand + Web Revamp',
+            description: 'Total redesign of your brand identity and website for a fresh, modern look that aligns with your evolving vision—perfect for rebranding or relaunching your business.',
+            features: [
+                'Full brand identity redesign',
+                'Complete website overhaul',
+                'Integrated brand-website experience',
+                'SEO and performance upgrades',
+                'Social media asset refresh',
+                '45 days of support'
+            ],
+            timeline: '3-5 weeks',
+            priceFrom: '₦6,000,000',
+            priceTo: '₦12,000,000'
+        }
+    };
 
+    document.querySelectorAll('.view-service').forEach(button => {
+        button.addEventListener('click', function () {
+            console.log('Button clicked:', this);
 
+            const serviceKey = this.getAttribute('data-service');
+            const service = serviceDetails[serviceKey];
 
-// Service Details Modal
-const modal = document.getElementById('serviceModal');
-const modalContent = document.getElementById('modalContent');
-const closeModal = document.querySelector('.close');
-
-const serviceDetails = {
-    "brand-refresh": {
-        title: 'Brand Refresh',
-        description: 'Modernize your existing brand identity with updated logo design, color palette adjustments, and refreshed brand guidelines while keeping your brand essence intact.',
-        features: [
-            'Updated logo design',
-            'Color palette adjustments',
-            'Refreshed brand guidelines',
-            'Business card redesign',
-            'Social media asset refresh',
-            'Brand essence preservation'
-        ],
-        timeline: '1-2 weeks',
-        priceFrom: '₦2,400,000',
-        priceTo: '₦4,800,000'
-    },
-    "website-revamp": {
-        title: 'Website Revamp',
-        description: 'A full redesign of your current website with improved UI/UX, mobile optimization, speed enhancements, and SEO upgrades for modern performance and aesthetics.',
-        features: [
-            'Complete UI/UX redesign',
-            'Mobile optimization',
-            'Speed enhancements',
-            'SEO upgrades',
-            'Content restructuring',
-            '30 days of post-launch support'
-        ],
-        timeline: '2-4 weeks',
-        priceFrom: '₦3,600,000',
-        priceTo: '₦7,200,000'
-    },
-    "social-revamp": {
-        title: 'Social Media Redesign',
-        description: 'Revamp your social media profiles with new banners, refreshed content templates, and updated highlight covers for a consistent and attractive digital presence.',
-        features: [
-            'New profile banners',
-            'Refreshed content templates',
-            'Updated highlight covers',
-            'Profile optimization',
-            'Brand consistency across platforms',
-            'Content strategy update'
-        ],
-        timeline: '1 week',
-        priceFrom: '₦1,200,000',
-        priceTo: '₦2,400,000'
-    },
-    "complete-revamp": {
-        title: 'Complete Brand + Web Revamp',
-        description: 'Total redesign of your brand identity and website for a fresh, modern look that aligns with your evolving vision—perfect for rebranding or relaunching your business.',
-        features: [
-            'Full brand identity redesign',
-            'Complete website overhaul',
-            'Integrated brand-website experience',
-            'SEO and performance upgrades',
-            'Social media asset refresh',
-            '45 days of support'
-        ],
-        timeline: '3-5 weeks',
-        priceFrom: '₦6,000,000',
-        priceTo: '₦12,000,000'
-    }
-};
-
-document.querySelectorAll('.view-service').forEach(button => {
-    button.addEventListener('click', function () {
-        console.log('Button clicked:', this);
-        
-        const serviceKey = this.getAttribute('data-service');
-        const service = serviceDetails[serviceKey];
-
-        if (service) {
-            modalContent.innerHTML = `
-                <h3>${service.title}</h3>
-                <p>${service.description}</p>
-
-                <h3 style="color: var(--neutral-white);">What's Included:</h3>
-                <ul style="color: var(--text-light); margin-bottom: 2rem;">
-                    ${service.features.map(feature => `<li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary-color); margin-right: 0.5rem;"></i>${feature}</li>`).join('')}
-                </ul>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-                    <div>
-                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Timeline</h4>
-                        <p style="color: var(--text-light);">${service.timeline}</p>
+            if (service) {
+                modalContent.innerHTML = `
+                    <h3>${service.title}</h3>
+                    <p>${service.description}</p>
+    
+                    <h3 style="color: var(--neutral-white);">What's Included:</h3>
+                    <ul style="color: var(--text-light); margin-bottom: 2rem;">
+                        ${service.features.map(feature => `<li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary-color); margin-right: 0.5rem;"></i>${feature}</li>`).join('')}
+                    </ul>
+    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Timeline</h4>
+                            <p style="color: var(--text-light);">${service.timeline}</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Investment</h4>
+                            <p style="color: var(--text-light); font-weight: 600;">
+                                <span style="font-size: var(--font-size-sm);">Range: ${service.priceFrom} - ${service.priceTo}</span>
+                            </p>
+                        </div>
                     </div>
-                    <div>
-                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Investment</h4>
-                        <p style="color: var(--text-light); font-weight: 600;">
-                            <span style="font-size: var(--font-size-sm);">Range: ${service.priceFrom} - ${service.priceTo}</span>
-                        </p>
+    
+                    <div style="text-align: center;">
+                        <a href="#contact" class="btn-primary btn btn-lg" style="width: 100%;">Book Package</a>
                     </div>
-                </div>
+                `;
+                modal.classList.add('active');
+            }
+        });
+    });
 
-                <div style="text-align: center;">
-                    <a href="#contact" class="btn-primary btn btn-lg" style="width: 100%;">Book Package</a>
-                </div>
-            `;
-            modal.classList.add('active');
+    closeModal.addEventListener('click', () => {
+        modal.classList.remove('active')
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active')
         }
     });
-});
 
-closeModal.addEventListener('click', () => {
-    modal.classList.remove('active')
-});
+    const testimonials = [
+        {
+            text: "Launch Nest didn’t just build us a website. They gave us a business identity. Our sales tripled within 2 months. I finally feel like we are competing with the big players.",
+            name: "Sophia Adams",
+            role: "Founder, GreenEdge Organics",
+            avatar: "SA"
+        },
+        {
+            text: "We came to Launch Nest with nothing but an idea. Today, that idea is a thriving platform serving thousands of customers. Their team didn’t just deliver, they overdelivered.",
+            name: "James Turner",
+            role: "Co-Founder, EduLink Hub",
+            avatar: "JT"
+        },
+        {
+            text: "Professional. Bold. Unstoppable. Launch Nest pushed us to dream bigger and backed it up with flawless execution. If you want results, this is the team you call.",
+            name: "Karen Hughes",
+            role: "Managing Director, BrightPath Consulting",
+            avatar: "KH"
+        }
+    ];
 
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.classList.remove('active')
+    let current = 0;
+    const container = document.getElementById("testimonials-container");
+
+    function renderTestimonial(index) {
+        const t = testimonials[index];
+        container.innerHTML = `
+      <p class="testimonial-text">${t.text}</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">${t.avatar}</div>
+        <div class="author-info">
+          <h4>${t.name}</h4>
+          <p>${t.role}</p>
+        </div>
+      </div>
+  `;
     }
+
+    // Initial render
+    renderTestimonial(current);
+
+    // Auto switch
+    setInterval(() => {
+        current = (current + 1) % testimonials.length;
+        renderTestimonial(current);
+    }, 5000);
 });
+
+
+
+
 
 // // Contact Form
 // document.getElementById('contactForm').addEventListener('submit', function (e) {
@@ -689,7 +736,7 @@ class NavigationMenu {
 // Update service list active state based on screen width
 function updateServiceListActive() {
     const serviceLists = document.querySelectorAll('.service-list > .list');
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 500) {
         serviceLists.forEach(list => list.classList.add('active'));
     } else {
         serviceLists.forEach(list => list.classList.remove('active'));
